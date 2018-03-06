@@ -7,7 +7,8 @@ lst = list(range(0, 10))
 
 
 def choose_coordinates(field, length):
-    y = random.choice(lst)  # choose y for 4-length ship
+    """Randomly choose coordinates for the ship"""
+    y = random.choice(lst)
     x = random.choice(lst)
     if y < length:
         if x < length:
@@ -34,8 +35,8 @@ def choose_coordinates(field, length):
     return (y, x), ch
 
 
-def add_ship(n_field, length, tile, choice):
-    field = n_field.copy()
+def add_ship(field, length, tile, choice):
+    """Adds ship on the field along with neighbours"""
     if not check_neighbour(field, tile, choice, length):
         return False
     if choice == 'vb':
