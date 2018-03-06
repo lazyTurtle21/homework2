@@ -1,5 +1,6 @@
 def add_neighbour(field, tile, choice, length):
-    if choice == 'vt':  # nor
+    """Adds neighbour tiles if user destroyed a ship"""
+    if choice == 'vt':
         if tile[0] - length != -1:
             field[tile[0] - length][tile[1]] = '·'
         if tile[0] != 9:
@@ -18,7 +19,7 @@ def add_neighbour(field, tile, choice, length):
             if tile[1] != 9:
                 field[i][tile[1] + 1] = '·'
 
-    elif choice == 'vb':  # norm
+    elif choice == 'vb':
         if tile[0] != 0:
             field[tile[0] - 1][tile[1]] = '·'
         if tile[0] + length - 1 != 9:
@@ -37,7 +38,7 @@ def add_neighbour(field, tile, choice, length):
             if tile[1] != 9:
                 field[i][tile[1] + 1] = '·'
 
-    elif choice == 'hr':  # norm
+    elif choice == 'hr':
         if tile[1] != 0:
             field[tile[0]][tile[1] - 1] = '·'
         if tile[1] + length < 10:
@@ -55,7 +56,7 @@ def add_neighbour(field, tile, choice, length):
                 field[tile[0] - 1][i] = '·'
             if tile[0] != 9:
                 field[tile[0] + 1][i] = '·'
-    else:  # norm
+    else:
         if tile[1] != 9:
             field[tile[0]][tile[1] + 1] = '·'
         if tile[1] - length != -1:
@@ -77,7 +78,8 @@ def add_neighbour(field, tile, choice, length):
 
 
 def check_neighbour(field, tile, choice, length):
-    if choice == 'vt':  # nor
+    """Checks if ship is valid for the field"""
+    if choice == 'vt':
         if tile[0] - length != -1 and field[tile[0] - length][tile[1]] == 'X':
             return False
         if tile[0] != 9 and field[tile[0] + 1][tile[1]] == 'X':
@@ -103,7 +105,7 @@ def check_neighbour(field, tile, choice, length):
             if tile[1] != 9 and field[i][tile[1] + 1] == 'X':
                 return False
 
-    elif choice == 'vb':  # norm
+    elif choice == 'vb':
         if tile[0] != 0 and field[tile[0] - 1][tile[1]] == 'X':
             return False
         if tile[0] + length - 1 != 9 and\
@@ -130,7 +132,7 @@ def check_neighbour(field, tile, choice, length):
             if tile[1] != 9 and field[i][tile[1] + 1] == 'X':
                 return False
 
-    elif choice == 'hr':  # norm
+    elif choice == 'hr':
         if tile[1] != 0 and field[tile[0]][tile[1] - 1] == 'X':
             return False
         if tile[1] + length < 10 and field[tile[0]][tile[1] + length] == 'X':
@@ -155,7 +157,7 @@ def check_neighbour(field, tile, choice, length):
                 return False
             if tile[0] != 9 and field[tile[0] + 1][i] == 'X':
                 return False
-    else:  # norm
+    else:
         if tile[1] != 9 and field[tile[0]][tile[1] + 1] == 'X':
             return False
         if tile[1] - length != -1 and\
