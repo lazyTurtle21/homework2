@@ -275,7 +275,7 @@ def main():
     else:
         field = game.field_without_ships
 
-    print('═════════Game BATTLESHIP════════')
+    print('\n\n═════════Game BATTLESHIP════════')
 
     while True:
         os.system('cls')
