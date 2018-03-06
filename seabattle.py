@@ -43,7 +43,7 @@ class Game:
     def shoot_at(self, index, tile):
         """
         Return True if player hit the ship, False otherwise,
-        string is he won.
+        string if he won.
         :param index: int
         :param tile: tuple
         :return: bool/str
