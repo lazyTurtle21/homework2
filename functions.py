@@ -8,6 +8,7 @@ from add_random_ships import *
 
 
 def check_input(data):
+    """Check if user inputed valid coordinates"""
     if len(data) < 2:
         return False
     if not isinstance(data[0], str):
@@ -32,6 +33,8 @@ def check_input(data):
 def read_field(filename):
     """
     (str) -> (data)
+    Read and return field from file
+
     :param name: str
     :return: list
     """
@@ -44,6 +47,13 @@ def read_field(filename):
 
 
 def has_ship(field, cell):
+    """
+    Return True if field with coordinates as cell has ship,
+    otherwise False
+    :param field: list
+    :param cell: tuple
+    :return: bool
+    """
     return False if field[ord(cell[0]) - 65][cell[1] - 1]\
                     == ' ' else True
 
@@ -69,6 +79,7 @@ def is_valid(field, ships):
 
 
 def ship_size(field, coordinates, ships):
+    """Return ship size as tuple"""
     tile = [ord(coordinates[0]) - 65, coordinates[1] - 1]
     place = field[tile[0]][tile[1]]
     if place == ' ':
@@ -85,8 +96,8 @@ def field_to_str(field):
     """
     (list) -> (str)
     Return field as string
-    :param field:
-    :return:
+    :param field: list
+    :return: str
     """
     result = '  '
     for i in range(1, 11):
@@ -102,6 +113,7 @@ def field_to_str(field):
 
 
 def generate_field():
+    """Randomly generate fiels"""
     field = [[' ' for _ in range(10)] for _ in range(10)]
     res = []
 
