@@ -52,7 +52,7 @@ class Game:
         if not hit:
             return False
         if self.check_win(index):
-            return '{}, you won!'.format(self.__players[self.__current_player])
+            return '{}, you won!'.format(self.__players[self.__current_player]._Player__name)
         return True
 
     def check_win(self, index):
@@ -198,7 +198,7 @@ class Field:
         return board
 
     def shoot_at(self, tile):
-        """Return True is a ship was hit and false otherwise"""
+        """Return True if a ship was hit and false otherwise"""
         ships_all = self.show_ships
         ship = ships_all[tile[0]][tile[1]]
         board = self.__ships
